@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: Entity Analysis API
+  description: API for analyzing entities in text
+  version: 1.0.0
+paths:
+  /analyze:
+    post:
+      summary: Analyze entities in text
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                  description: The text to analyze
+      responses:
+        "200":
+          description: A list of entities
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  entities:
+                    type: array
+                    items:
+                      type: string
+  /health:
+    get:
+      summary: Check the health of the API
+      responses:
+        "200":
+          description: The API is healthy
